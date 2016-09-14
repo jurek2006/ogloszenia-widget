@@ -2,16 +2,32 @@
 /*
 Plugin Name: Ogłoszenia Widget JS
 Description: Widżet do strony Centrum Sztuki wyświetlający listę ogłoszeń. Wyświetlane są tylko ogłoszenia opublikowane (czyli data publikacji już minęła) i których termin widoczności na widżecie jeszcze nie minął
-Version: 0.1
+Version: 0.2
 Author: Jurek Skowron
 */
 
 class ogloszeniaWidgetJS extends WP_Widget {
 
         // constructor
-        function ogloszeniaWidgetJS() {
-                parent::WP_Widget(false, $name = __('Ogłoszenia Widget', 'wp_widget_plugin') );
-        }
+        // function ogloszeniaWidgetJS() {
+        //         parent::WP_Widget(false, $name = __('Ogłoszenia Widget', 'wp_widget_plugin') );
+        // }
+
+        function __construct() {
+			// parent::__construct(
+			// 	'foo_widget', // Base ID
+			// 	__( 'Widget Title', 'text_domain' ), // Name
+			// 	array( 'description' => __( 'A Foo Widget', 'text_domain' ), ) // Args
+			// );
+
+			// parent::__construct(false, $name = __('Ogłoszenia Widget', 'wp_widget_plugin') );
+
+			parent::__construct(
+				'ogloszenia-widget', // Base ID
+				__( 'Widżet ogłoszeń', 'ogloszenia-widget' ), // Name
+				array( 'description' => __( 'Widżet ogłoszeń CS' ), ) // Args
+			);
+		}
 
         // widget form creation
         function form($instance) {      
